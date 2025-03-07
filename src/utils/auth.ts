@@ -28,7 +28,7 @@ export async function loginUser(email: string, password: string) {
  * Отправляет имя, email и пароль на сервер и возвращает данные (токен и информацию о пользователе).
  */
 export async function registerUser(name: string, email: string, password: string) {
-  return apiRequestJson("/auth/register", "POST", { name, email, password });
+  return apiRequestJson("/users", "POST", { name, email, password });
 }
 
 /**

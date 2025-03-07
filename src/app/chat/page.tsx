@@ -14,7 +14,7 @@ const ChatPage = () => {
     if (!loading && !isAuthenticated) {
       router.replace("/login");
     }
-  }, [loading, isAuthenticated]);
+  }, [loading, isAuthenticated, router]);
 
   if (!isAuthenticated) return null;
 
