@@ -20,15 +20,27 @@ export function removeToken() {
  * Отправляет email и пароль на сервер и возвращает данные (токен и информацию о пользователе).
  */
 export async function loginUser(email: string, password: string) {
-  return apiRequestJson("/auth/login", "POST", { email, password });
+  return apiRequestJson("/users/login", "POST", { email, password });
 }
 
 /**
  * Функция для регистрации нового пользователя.
  * Отправляет имя, email и пароль на сервер и возвращает данные (токен и информацию о пользователе).
  */
+// export async function registerUser(username: string, email: string, password: string) {
+//   return apiRequestJson("/users", "POST", { username, email, password });
+// }
+
 export async function registerUser(name: string, email: string, password: string) {
-  return apiRequestJson("/users", "POST", { name, email, password });
+  return apiRequestJson("/users", "POST", {
+    user: {
+      username: name, // ваш фронт "name" -> бэкенд "username"
+      email,
+      password,
+      img: "", // если пока не используете
+      bio: "", // если пока не используете
+    },
+  });
 }
 
 /**
